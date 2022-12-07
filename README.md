@@ -1,5 +1,5 @@
 # DareIT Robot Framework
-```test_scouts_panel.robot``` includes 6 tests:
+### This repository includes 6 tests in different environments:
 
 ## [Scouts Panel](https://scouts-test.futbolkolektyw.pl/login) in testing environment 
 `test_scouts_panel_testing_environment.robot`:

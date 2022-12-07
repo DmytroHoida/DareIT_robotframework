@@ -1,16 +1,16 @@
 *** Settings ***
 Library    SeleniumLibrary
 Documentation     Suite description #automated tests for scout website
-
+Library    SeleniumLibrary
+Documentation     Suite description #automated tests for scout website
 *** Variables ***
-${LOGIN URL}        https://scouts.futbolkolektyw.pl/en/
+${LOGIN URL}        https://scouts-test.futbolkolektyw.pl/en
 ${BROWSER}          Chrome
 ${SIGNINBUTTON}     //*[@id='__next']/form/div/div[2]/button
 ${EMAILINPUT}       //*[@id='login']
 ${PASSWORDINPUT}    //*[@id='password']
 ${PAGELOGO}         //*[@id="__next"]/div[1]/main/div[3]/div[1]/div/div[1]
 ${ERRORMESSAGE}     //*[@id="__next"]/form/div/div[1]/div[3]/span
-${LANGUAGESWITCH}   //*[@id="__next"]/div[1]/div/div/div/ul[2]/div[1]/div[2]/span
 #ADD PLAYER  variables
 ${ADDPLAYERLINK}    //*[@id="__next"]/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]
 ${PLAYERADDEDALERT}     //*[@role="alert" and text()="Added player."]
@@ -114,7 +114,6 @@ Click on the Sign In button
     Click Button    ${SIGNINBUTTON}
 Assert dashboard
     Wait Until Element Is Visible    ${PAGELOGO}
-    Element Text Should Be  ${LANGUAGESWITCH}    Polski
     Title Should Be    Scouts panel
     Capture Page Screenshot    alert.png
 Type in incorrect password
@@ -148,6 +147,7 @@ Complete fields
     Input Text  ${WEBFBFIELD}   example.facebook.com
     Click Element    ${WEBYTBUTTON}
     Input Text    ${WEBYTFIELD}     example.youtube.com
+
 Complete fields with incorrect day
     Wait Until Element Is Visible    ${EMAILFIELD}
     Input Text  ${EMAILFIELD}   example@gmail.com
@@ -189,6 +189,3 @@ Check correctness of data
     Textfield Value Should Be    ${WEB90FIELD}     Example text
     Textfield Value Should Be  ${WEBFBFIELD}   example.facebook.com
     Textfield Value Should Be    ${WEBYTFIELD}     example.youtube.com
-
-
-
